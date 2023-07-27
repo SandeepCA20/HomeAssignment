@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Take Home</string>
+    <string name="enter_a_github_user_id">Enter a github user id</string>
+    <string name="search">Search</string>
+    <string name="error_msg_userid">Please enter github id</string>
+    <string name="no_record_found">No record found</string>
+    <string name="acpt_string">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="updated_at">Updated at</string>
+    <string name="stargazers_count">Stargazers count</string>
+    <string name="forks">Forks</string>
+    <string name="detail">Detail Screen</string>
+</resources>
