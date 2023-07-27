@@ -11,12 +11,13 @@ import com.example.homeassignment.model.UserRepos
 import java.io.Serializable
 
 class RepoDetailActivity : AppCompatActivity() {
-    lateinit var binding: ActivityRepoBinding
+    lateinit var binding: ActivityRepoBinding  ///view binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
     }
 
+    ///initialized and set toolbar
     private fun init() {
         binding = ActivityRepoBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -26,6 +27,7 @@ class RepoDetailActivity : AppCompatActivity() {
         setData()
     }
 
+    ///set repo details
     private fun setData() {
         val userObj = intent.serializable<UserRepos>("userData")
         if (userObj != null) {
@@ -40,6 +42,7 @@ class RepoDetailActivity : AppCompatActivity() {
         }
     }
 
+    ///on toolbar back icon click handle
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -50,11 +53,13 @@ class RepoDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    ///set constant variable to check the count of forks is 5000 or more
     companion object {
         private const val LARGE_FORK_NUMBER = 5000
     }
 }
 
+///checking os version and set serializable data accordingly
 inline fun <reified T : Serializable> Intent.serializable(key: String): T? = when {
     Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> getSerializableExtra(
         key,

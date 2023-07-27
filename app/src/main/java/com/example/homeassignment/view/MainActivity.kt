@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @Inject
-    lateinit var viewModelFactory: UserViewModelFactory
+    lateinit var viewModelFactory: UserViewModelFactory  //inject factory class
 
-    val adapter = UserRepoAdapter(mutableListOf())
+    private val adapter = UserRepoAdapter(mutableListOf())  //initilized adapter class
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         userData()
     }
 
+    ///initialized function
     private fun init() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = adapter
     }
 
+    ///observe data from view model and set data accordingly
     private fun userData() {
         userViewModel.userData.observe(this, Observer {
             Picasso.get().load(it.avatarUrl).into(binding.imgUser)
@@ -73,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    ///on search button click handle
     fun onButtonClick(view: View) {
         showNoRecordText(false)
 
@@ -88,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         hideKeybaord(view)
     }
 
+    ///if repo list is empty showing text
     private fun showNoRecordText(isShown: Boolean) {
         if (isShown) {
             binding.txtNoRecord.visibility = View.VISIBLE
@@ -97,6 +101,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    ///handle view visibility
     private fun controlVisibility(visibility: Boolean, progressBarVisibility: Boolean) {
         binding.run {
             recyclerView.isVisible = visibility
@@ -106,6 +111,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    ///handle keyboard hide on search button click
     private fun hideKeybaord(v: View) {
         val inputMethodManager: InputMethodManager =
             getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager

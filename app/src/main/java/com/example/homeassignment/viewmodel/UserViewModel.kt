@@ -21,7 +21,7 @@ class UserViewModel(private val repository: UserRepository) : ViewModel() {
 
     val errorMessage: LiveData<String>
         get() = repository.errorMessage
-
+//calling api to get userinfo and user repo data
     suspend fun getUserInfo(userId: String) {
         viewModelScope.launch {
             coroutineScope {

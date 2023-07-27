@@ -9,7 +9,7 @@ import com.example.homeassignment.model.UserRepos
 class UserRepoAdapter(private val repoList: MutableList<UserRepos>) :
     RecyclerView.Adapter<UserRepoAdapter.MyViewHolder>() {
 
-    var onItemClick: ((position: Int) -> Unit)? = null
+    var onItemClick: ((position: Int) -> Unit)? = null   //initialized list itemclick listener variable
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
@@ -25,10 +25,10 @@ class UserRepoAdapter(private val repoList: MutableList<UserRepos>) :
         val userRepos: UserRepos = repoList[position]
         holder.bind(userRepos)
         holder.itemView.setOnClickListener {
-            onItemClick?.invoke(position)
+            onItemClick?.invoke(position)   ///invoking list item click listener
         }
     }
-
+///update list data
     fun updateListData(latestList: List<UserRepos>) {
         repoList.run {
             clear()
