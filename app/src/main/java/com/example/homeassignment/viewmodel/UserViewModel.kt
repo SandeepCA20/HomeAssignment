@@ -11,18 +11,18 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserViewModel(private val repository: UserRepository): ViewModel() {
+class UserViewModel(private val repository: UserRepository) : ViewModel() {
 
     val userData: LiveData<UserInfoData>
-    get() = repository.userInfo
+        get() = repository.userInfo
 
     val userRepos: LiveData<List<UserRepos>>
-    get() = repository.userRepos
+        get() = repository.userRepos
 
     val errorMessage: LiveData<String>
-    get() = repository.errorMessage
+        get() = repository.errorMessage
 
-    suspend fun getUserInfo(userId: String){
+    suspend fun getUserInfo(userId: String) {
         viewModelScope.launch {
             coroutineScope {
                 withContext(Dispatchers.IO) {
@@ -33,8 +33,5 @@ class UserViewModel(private val repository: UserRepository): ViewModel() {
                 }
             }
         }
-
     }
-
-
 }

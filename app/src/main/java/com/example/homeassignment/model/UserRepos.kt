@@ -1,3 +1,21 @@
 package com.example.homeassignment.model
 
-data class UserRepos(val name: String,val description: String,val updated_at: String, val stargazers_count: String, val forks: String)
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
+data class UserRepos(
+    @SerializedName("name")
+    val name: String,
+
+    @SerializedName("description")
+    val description: String,
+
+    @SerializedName("updated_at")
+    val updatedAt: String,
+
+    @SerializedName("stargazers_count")
+    val stargazersCount: String,
+
+    @SerializedName("forks")
+    val forks: String
+) : Serializable

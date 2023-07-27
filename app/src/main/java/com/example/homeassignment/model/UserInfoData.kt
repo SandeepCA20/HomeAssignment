@@ -1,3 +1,12 @@
 package com.example.homeassignment.model
 
-data class UserInfoData(val name: String, val avatar_url: String)
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
+data class UserInfoData(
+    @SerializedName("name")
+    val name: String,
+
+    @SerializedName("avatar_url")
+    val avatarUrl: String
+) : Serializable
